@@ -1,0 +1,47 @@
+{
+    "core": {
+        "version": "2.0.1.45585"
+    },
+    "opt": {
+        "props": {
+            "capabilities": [
+                "adc",
+                "bsp_gen5",
+                "cat1",
+                "cat1b",
+                "comp",
+                "dma",
+                "flash_256k",
+                "hal",
+                "hppass",
+                "i2c",
+                "kit_psc3m5_cc1",
+                "low_power",
+                "lptimer",
+                "mcu_gp",
+                "rtc",
+                "smart_io",
+                "spi",
+                "sram_64k",
+                "std_crypto",
+                "uart"
+            ],
+            "dependencies": {
+                "core-lib": "release-v1.7.0",
+                "core-make": "release-v3.8.0",
+                "mtb-hal-psc3": "release-v1.1.2",
+                "mtb-pdl-cat1": "release-v3.20.1",
+                "recipe-make-cat1b": "release-v2.8.2"
+            },
+            "docs_dir": "docs",
+            "flow_version": "2.0",
+            "min_tools": "3.3.0",
+            "template": {
+                "id": "mtb-template-cat1",
+                "rejected-id": "mtb-template-cat1",
+                "rejected-version": "release-v1.8.1",
+                "version": "release-v1.7.0"
+            }
+        }
+    }
+}
