@@ -8,11 +8,12 @@ This code example was created for testing the RAK-GAN with the MIAT8318 100KV mo
 
 ## Requirements
 
-- [ModusToolbox® software](https://www.infineon.com/cms/en/design-support/tools/sdk/modustoolbox-software/) v3.7 or later (tested with v3.7).
-- Motor Suite 2.8.1 GUI.
+- [ModusToolbox® software](https://www.infineon.com/cms/en/design-support/tools/sdk/modustoolbox-software/) v3.8 or later (tested with v3.8).
+- Motor Suite 2.9.0 GUI.
 - The latest hardware release: RAK-GAN Rev. 1.
-- At least 500W DC Power Supply.
+- At least 500W 48V DC Power Supply.
 - At least 2.5 mm2 (14 AWG) Power Cables.
+- MIAT8318 KV100 motor.
 
 ## Supported toolchains (make variable 'TOOLCHAIN')
 
@@ -95,7 +96,7 @@ On program entry, you may select the firmware and library versions. Please do as
 
 The potentiometer control is always on by default. Switch it off and slowly increase the throttle "Target Set". In this case, the motor will start spinning at 4% of maximum speed in Current Open Loop mode. At 8% of maximum speed, the observer will take over, and FOC will be engaged. 
 
-<img src="images/motor_suite_gui.jpg" style="zoom:100%;" />
+<img src="images/motor_suite_gui.jpg" style="zoom:60%;" />
 
 ### Debugging
 

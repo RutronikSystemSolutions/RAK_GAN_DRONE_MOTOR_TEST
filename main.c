@@ -1,11 +1,15 @@
 /*******************************************************************************
 * File Name:   main.c
 *
-* Description: This is the source code for Hello World Example using PDL APIs
-*              for ModusToolbox.
+* Description: This is the source code for the RAK-GAN Drone Motor Test 
+*             Application for ModusToolbox.
 *
 * Related Document: See README.md
 *
+* Created on: 2026-05-06
+* Company: Rutronik Elektronische Bauelemente GmbH
+* Address: Jonavos g. 30, Kaunas 44262, Lithuania
+* Author: GDR
 *
 *******************************************************************************
 * Copyright 2024, Cypress Semiconductor Corporation (an Infineon company) or
@@ -38,6 +42,13 @@
 * including Cypress's product in a High Risk Product, the manufacturer
 * of such system or application assumes all risk of such use and in doing
 * so agrees to indemnify Cypress against all liability.
+*
+* Rutronik Elektronische Bauelemente GmbH Disclaimer: The evaluation board
+* including the software is for testing purposes only and,
+* because it has limited functions and limited resilience, is not suitable
+* for permanent use under real conditions. If the evaluation board is
+* nevertheless used under real conditions, this is done at one’s responsibility;
+* any liability of Rutronik is insofar excluded
 *******************************************************************************/
 
 

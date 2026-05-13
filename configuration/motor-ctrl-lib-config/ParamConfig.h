@@ -36,7 +36,7 @@
 #include "MotorCtrlHWConfig.h"
 
 /*Parameter Configuration for Motor 0*/
-#define PARAMS_ALWAYS_OVERWRITE     (true)     //Parameters always overwritten.
+#define PARAMS_ALWAYS_OVERWRITE     (false)     //Parameters always overwritten.
 /*******************************************************************************/
 /******************Parameter Configuration for Motor 0**************************/
 /*******************************************************************************/

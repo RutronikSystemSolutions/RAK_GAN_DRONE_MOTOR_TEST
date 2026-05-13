@@ -55,7 +55,7 @@ APPNAME=rak-gan-drone-motor-test
 # IAR     -- IAR Compiler (must be installed separately)
 #
 # See also: CY_COMPILER_PATH below
-TOOLCHAIN=GCC_ARM
+TOOLCHAIN = GCC_ARM
 
 # Default build configuration. Options include:
 #

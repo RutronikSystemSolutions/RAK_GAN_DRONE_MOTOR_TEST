@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration app="BACKEND" formatVersion="15" lastSavedWith="Configurator Backend" lastSavedWithVersion="3.70.0" toolsPackage="ModusToolbox 3.7.0" xmlns="http://cypress.com/xsd/cydesignfile_v7">
+<Configuration app="BACKEND" formatVersion="15" lastSavedWith="Configurator Backend" lastSavedWithVersion="3.80.0" toolsPackage="ModusToolbox 3.8.0" xmlns="http://cypress.com/xsd/cydesignfile_v7">
     <Devices>
         <Device mpn="PSC3M5FDS2AFQ1">
             <BlockConfig>
+                <Block location="canfd[0].chan[1]">
+                    <Aliases>
+                        <Alias value="CAN_FD"/>
+                    </Aliases>
+                </Block>
                 <Block location="cordic[0]">
                     <Aliases>
                         <Alias value="MXCORDIC"/>
@@ -48,6 +53,16 @@
                         <Alias value="ARD_IO1"/>
                     </Aliases>
                 </Block>
+                <Block location="ioss[0].port[3].pin[3]">
+                    <Aliases>
+                        <Alias value="HALL_0"/>
+                    </Aliases>
+                </Block>
+                <Block location="ioss[0].port[4].pin[1]">
+                    <Aliases>
+                        <Alias value="WOC_EN"/>
+                    </Aliases>
+                </Block>
                 <Block location="ioss[0].port[4].pin[4]">
                     <Aliases>
                         <Alias value="PWMDCH"/>
@@ -60,12 +75,22 @@
                 </Block>
                 <Block location="ioss[0].port[5].pin[0]">
                     <Aliases>
-                        <Alias value="CYBSP_I2C_SDA"/>
+                        <Alias value="ISO_SDA"/>
                     </Aliases>
                 </Block>
                 <Block location="ioss[0].port[5].pin[1]">
                     <Aliases>
-                        <Alias value="CYBSP_I2C_SCL"/>
+                        <Alias value="ISO_SCL"/>
+                    </Aliases>
+                </Block>
+                <Block location="ioss[0].port[6].pin[0]">
+                    <Aliases>
+                        <Alias value="ARD_IO3"/>
+                    </Aliases>
+                </Block>
+                <Block location="ioss[0].port[6].pin[1]">
+                    <Aliases>
+                        <Alias value="ARD_IO4"/>
                     </Aliases>
                 </Block>
                 <Block location="ioss[0].port[6].pin[2]">
@@ -80,17 +105,32 @@
                 </Block>
                 <Block location="ioss[0].port[7].pin[0]">
                     <Aliases>
-                        <Alias value="ARD_IO3"/>
+                        <Alias value="CYBSP_I2C_SDA"/>
                     </Aliases>
                 </Block>
                 <Block location="ioss[0].port[7].pin[1]">
                     <Aliases>
-                        <Alias value="ARD_IO4"/>
+                        <Alias value="CYBSP_I2C_SCL"/>
                     </Aliases>
                 </Block>
                 <Block location="ioss[0].port[7].pin[4]">
                     <Aliases>
                         <Alias value="N_FAULT_HW"/>
+                    </Aliases>
+                </Block>
+                <Block location="ioss[0].port[7].pin[5]">
+                    <Aliases>
+                        <Alias value="ENC_A"/>
+                    </Aliases>
+                </Block>
+                <Block location="ioss[0].port[7].pin[6]">
+                    <Aliases>
+                        <Alias value="ENC_B"/>
+                    </Aliases>
+                </Block>
+                <Block location="ioss[0].port[7].pin[7]">
+                    <Aliases>
+                        <Alias value="ENC_Z"/>
                     </Aliases>
                 </Block>
                 <Block location="ioss[0].port[8].pin[0]">
@@ -113,25 +153,14 @@
                         <Alias value="CYBSP_SPI_CLK"/>
                     </Aliases>
                 </Block>
-                <Block location="ioss[0].port[9].pin[2]">
+                <Block location="ioss[0].port[8].pin[4]">
                     <Aliases>
-                        <Alias value="ARD_IO5"/>
-                        <Alias value="HALL_0"/>
-                        <Alias value="ENC_A"/>
-                    </Aliases>
-                </Block>
-                <Block location="ioss[0].port[9].pin[3]">
-                    <Aliases>
-                        <Alias value="ARD_IO6"/>
                         <Alias value="HALL_1"/>
-                        <Alias value="ENC_B"/>
                     </Aliases>
                 </Block>
-                <Block location="ioss[0].port[9].pin[4]">
+                <Block location="ioss[0].port[8].pin[5]">
                     <Aliases>
-                        <Alias value="ARD_IO2"/>
                         <Alias value="HALL_2"/>
-                        <Alias value="ENC_Z"/>
                     </Aliases>
                 </Block>
                 <Block location="ioss[0].port[9].pin[5]">
@@ -144,9 +173,19 @@
                         <Alias value="ADC_DC_VOUT"/>
                     </Aliases>
                 </Block>
+                <Block location="pass[0].sar[0].ch[2]">
+                    <Aliases>
+                        <Alias value="ARD_A0"/>
+                    </Aliases>
+                </Block>
                 <Block location="pass[0].sar[0].ch[3]">
                     <Aliases>
                         <Alias value="ADC_DC_I_OUT"/>
+                    </Aliases>
+                </Block>
+                <Block location="pass[0].sar[0].ch[4]">
+                    <Aliases>
+                        <Alias value="ARD_A1"/>
                     </Aliases>
                 </Block>
                 <Block location="pass[0].sar[0].ch[5]">
@@ -156,12 +195,17 @@
                 </Block>
                 <Block location="pass[0].sar[0].ch[6]">
                     <Aliases>
-                        <Alias value="ADC_DC_TEMP_P"/>
+                        <Alias value="ADC_SAMP_TEMP_DC"/>
                     </Aliases>
                 </Block>
                 <Block location="pass[0].sar[0].ch[7]">
                     <Aliases>
-                        <Alias value="ADC_DC_TEMP_N"/>
+                        <Alias value="AN_A7_P22"/>
+                    </Aliases>
+                </Block>
+                <Block location="pass[0].sar[0].ch[12]">
+                    <Aliases>
+                        <Alias value="AN_B4_P23"/>
                     </Aliases>
                 </Block>
                 <Block location="pass[0].sar[0].ch[20]">
@@ -172,6 +216,21 @@
                 <Block location="pass[0].sar[0].ch[24]">
                     <Aliases>
                         <Alias value="ADC_EXT_N"/>
+                    </Aliases>
+                </Block>
+                <Block location="scb[1]">
+                    <Aliases>
+                        <Alias value="ARD_UART"/>
+                    </Aliases>
+                </Block>
+                <Block location="scb[2]">
+                    <Aliases>
+                        <Alias value="ARD_I2C"/>
+                    </Aliases>
+                </Block>
+                <Block location="scb[5]">
+                    <Aliases>
+                        <Alias value="ARD_SPI"/>
                     </Aliases>
                 </Block>
                 <Personality template="dap" version="2.0" instance="lwNGmF-WI7k">
@@ -422,71 +481,6 @@
                         <Param id="vtrip" value="CY_GPIO_VTRIP_CMOS"/>
                     </Parameters>
                 </Personality>
-                <Personality template="pin" version="3.0" instance="msXoOqiFkHo">
-                    <Block location="ioss[0].port[7].pin[5]" locked="true">
-                        <Aliases>
-                            <Alias value="CYBSP_USER_LED1"/>
-                            <Alias value="CYBSP_USER_LED_RED"/>
-                            <Alias value="FAULT_LED_ALL"/>
-                        </Aliases>
-                    </Block>
-                    <Parameters>
-                        <Param id="DriveModes" value="CY_GPIO_DM_STRONG_IN_OFF"/>
-                        <Param id="driveStrength" value="CY_GPIO_DRIVE_1_2"/>
-                        <Param id="driveStrengthTrim" value="CY_GPIO_DRIVE_STRENGTH_DEFAULT"/>
-                        <Param id="inFlash" value="true"/>
-                        <Param id="initialState" value="1"/>
-                        <Param id="isrTrigger" value="CY_GPIO_INTR_DISABLE"/>
-                        <Param id="nonSec" value="0"/>
-                        <Param id="pullUpRes" value="CY_GPIO_PULLUP_RES_DISABLE"/>
-                        <Param id="sioOutputBuffer" value="true"/>
-                        <Param id="slewRate" value="CY_GPIO_SLEW_FAST"/>
-                        <Param id="vtrip" value="CY_GPIO_VTRIP_CMOS"/>
-                    </Parameters>
-                </Personality>
-                <Personality template="pin" version="3.0" instance="tFmD-25CdA0">
-                    <Block location="ioss[0].port[7].pin[6]" locked="true">
-                        <Aliases>
-                            <Alias value="CYBSP_USER_LED"/>
-                            <Alias value="DIR_LED"/>
-                            <Alias value="CYBSP_USER_LED_GREEN"/>
-                        </Aliases>
-                    </Block>
-                    <Parameters>
-                        <Param id="DriveModes" value="CY_GPIO_DM_STRONG_IN_OFF"/>
-                        <Param id="driveStrength" value="CY_GPIO_DRIVE_1_2"/>
-                        <Param id="driveStrengthTrim" value="CY_GPIO_DRIVE_STRENGTH_DEFAULT"/>
-                        <Param id="inFlash" value="true"/>
-                        <Param id="initialState" value="1"/>
-                        <Param id="isrTrigger" value="CY_GPIO_INTR_DISABLE"/>
-                        <Param id="nonSec" value="0"/>
-                        <Param id="pullUpRes" value="CY_GPIO_PULLUP_RES_DISABLE"/>
-                        <Param id="sioOutputBuffer" value="true"/>
-                        <Param id="slewRate" value="CY_GPIO_SLEW_FAST"/>
-                        <Param id="vtrip" value="CY_GPIO_VTRIP_CMOS"/>
-                    </Parameters>
-                </Personality>
-                <Personality template="pin" version="3.0" instance="zZGMlsujd7c">
-                    <Block location="ioss[0].port[7].pin[7]" locked="true">
-                        <Aliases>
-                            <Alias value="CYBSP_USER_LED2"/>
-                            <Alias value="CYBSP_USER_LED_BLUE"/>
-                        </Aliases>
-                    </Block>
-                    <Parameters>
-                        <Param id="DriveModes" value="CY_GPIO_DM_STRONG_IN_OFF"/>
-                        <Param id="driveStrength" value="CY_GPIO_DRIVE_1_2"/>
-                        <Param id="driveStrengthTrim" value="CY_GPIO_DRIVE_STRENGTH_DEFAULT"/>
-                        <Param id="inFlash" value="true"/>
-                        <Param id="initialState" value="1"/>
-                        <Param id="isrTrigger" value="CY_GPIO_INTR_DISABLE"/>
-                        <Param id="nonSec" value="0"/>
-                        <Param id="pullUpRes" value="CY_GPIO_PULLUP_RES_DISABLE"/>
-                        <Param id="sioOutputBuffer" value="true"/>
-                        <Param id="slewRate" value="CY_GPIO_SLEW_FAST"/>
-                        <Param id="vtrip" value="CY_GPIO_VTRIP_CMOS"/>
-                    </Parameters>
-                </Personality>
                 <Personality template="pin" version="3.0" instance="JrW24zQPKkc">
                     <Block location="ioss[0].port[9].pin[0]" locked="true">
                         <Aliases>
@@ -511,6 +505,74 @@
                     <Block location="ioss[0].port[9].pin[1]" locked="true">
                         <Aliases>
                             <Alias value="PWMVL"/>
+                        </Aliases>
+                    </Block>
+                    <Parameters>
+                        <Param id="DriveModes" value="CY_GPIO_DM_STRONG_IN_OFF"/>
+                        <Param id="driveStrength" value="CY_GPIO_DRIVE_1_2"/>
+                        <Param id="driveStrengthTrim" value="CY_GPIO_DRIVE_STRENGTH_DEFAULT"/>
+                        <Param id="inFlash" value="true"/>
+                        <Param id="initialState" value="1"/>
+                        <Param id="isrTrigger" value="CY_GPIO_INTR_DISABLE"/>
+                        <Param id="nonSec" value="0"/>
+                        <Param id="pullUpRes" value="CY_GPIO_PULLUP_RES_DISABLE"/>
+                        <Param id="sioOutputBuffer" value="true"/>
+                        <Param id="slewRate" value="CY_GPIO_SLEW_FAST"/>
+                        <Param id="vtrip" value="CY_GPIO_VTRIP_CMOS"/>
+                    </Parameters>
+                </Personality>
+                <Personality template="pin" version="3.0" instance="PhVFXGl2_XQ">
+                    <Block location="ioss[0].port[9].pin[2]" locked="true">
+                        <Aliases>
+                            <Alias value="ARD_IO5"/>
+                            <Alias value="CYBSP_USER_LED2"/>
+                            <Alias value="CYBSP_USER_LED_BLUE"/>
+                        </Aliases>
+                    </Block>
+                    <Parameters>
+                        <Param id="DriveModes" value="CY_GPIO_DM_STRONG_IN_OFF"/>
+                        <Param id="driveStrength" value="CY_GPIO_DRIVE_1_2"/>
+                        <Param id="driveStrengthTrim" value="CY_GPIO_DRIVE_STRENGTH_DEFAULT"/>
+                        <Param id="inFlash" value="true"/>
+                        <Param id="initialState" value="1"/>
+                        <Param id="isrTrigger" value="CY_GPIO_INTR_DISABLE"/>
+                        <Param id="nonSec" value="0"/>
+                        <Param id="pullUpRes" value="CY_GPIO_PULLUP_RES_DISABLE"/>
+                        <Param id="sioOutputBuffer" value="true"/>
+                        <Param id="slewRate" value="CY_GPIO_SLEW_FAST"/>
+                        <Param id="vtrip" value="CY_GPIO_VTRIP_CMOS"/>
+                    </Parameters>
+                </Personality>
+                <Personality template="pin" version="3.0" instance="KHrlVXSAkTQ">
+                    <Block location="ioss[0].port[9].pin[3]" locked="true">
+                        <Aliases>
+                            <Alias value="ARD_IO6"/>
+                            <Alias value="CYBSP_USER_LED"/>
+                            <Alias value="DIR_LED"/>
+                            <Alias value="CYBSP_USER_LED_GREEN"/>
+                        </Aliases>
+                    </Block>
+                    <Parameters>
+                        <Param id="DriveModes" value="CY_GPIO_DM_STRONG_IN_OFF"/>
+                        <Param id="driveStrength" value="CY_GPIO_DRIVE_1_2"/>
+                        <Param id="driveStrengthTrim" value="CY_GPIO_DRIVE_STRENGTH_DEFAULT"/>
+                        <Param id="inFlash" value="true"/>
+                        <Param id="initialState" value="1"/>
+                        <Param id="isrTrigger" value="CY_GPIO_INTR_DISABLE"/>
+                        <Param id="nonSec" value="0"/>
+                        <Param id="pullUpRes" value="CY_GPIO_PULLUP_RES_DISABLE"/>
+                        <Param id="sioOutputBuffer" value="true"/>
+                        <Param id="slewRate" value="CY_GPIO_SLEW_FAST"/>
+                        <Param id="vtrip" value="CY_GPIO_VTRIP_CMOS"/>
+                    </Parameters>
+                </Personality>
+                <Personality template="pin" version="3.0" instance="Ph1PKaTidcc">
+                    <Block location="ioss[0].port[9].pin[4]" locked="true">
+                        <Aliases>
+                            <Alias value="ARD_IO2"/>
+                            <Alias value="CYBSP_USER_LED1"/>
+                            <Alias value="CYBSP_USER_LED_RED"/>
+                            <Alias value="FAULT_LED_ALL"/>
                         </Aliases>
                     </Block>
                     <Parameters>
@@ -572,6 +634,12 @@
                         <Param id="gain" value="CY_HPPASS_SAR_SAMP_GAIN_1"/>
                     </Parameters>
                 </Personality>
+                <Personality template="hppass_sar_dir_samp" version="1.0" instance="KC2vDsdSIc4">
+                    <Block location="pass[0].sar[0].dir_sampler[9]" locked="true"/>
+                    <Parameters>
+                        <Param id="gain" value="CY_HPPASS_SAR_SAMP_GAIN_1"/>
+                    </Parameters>
+                </Personality>
                 <Personality template="hppass_sar_dir_samp" version="1.0" instance="vhnGxyYLbbE">
                     <Block location="pass[0].sar[0].dir_sampler[10]" locked="true"/>
                     <Parameters>
@@ -580,12 +648,6 @@
                 </Personality>
                 <Personality template="hppass_sar_dir_samp" version="1.0" instance="1BJkbIuS6Ec">
                     <Block location="pass[0].sar[0].dir_sampler[11]" locked="true"/>
-                    <Parameters>
-                        <Param id="gain" value="CY_HPPASS_SAR_SAMP_GAIN_1"/>
-                    </Parameters>
-                </Personality>
-                <Personality template="hppass_sar_mux_samp" version="1.0" instance="WBL-okMG49A">
-                    <Block location="pass[0].sar[0].muxed_sampler[0]" locked="true"/>
                     <Parameters>
                         <Param id="gain" value="CY_HPPASS_SAR_SAMP_GAIN_1"/>
                     </Parameters>
@@ -1189,7 +1251,7 @@
                         <Param id="trigger1Event" value="CY_TCPWM_CNT_TRIGGER_ON_DISABLED"/>
                     </Parameters>
                 </Personality>
-                <Personality template="3shunt" version="2.0" instance="nzNx9IoAnBE">
+                <Personality template="3shunt" version="2.0" instance="TI5MZOI9sQk">
                     <Block location="vres[0].motor[0]" locked="true"/>
                     <Parameters>
                         <Param id="Duty_Dithering" value="128"/>
@@ -1201,7 +1263,7 @@
                         <Param id="chan0#sign" value="true"/>
                         <Param id="chan1#chan1" value="pass[0].sar[0].ch[11]"/>
                         <Param id="chan1#sign" value="true"/>
-                        <Param id="chan2#chan2" value="pass[0].sar[0].ch[12]"/>
+                        <Param id="chan2#chan2" value="pass[0].sar[0].ch[9]"/>
                         <Param id="chan2#sign" value="true"/>
                         <Param id="chan3#chan3" value="pass[0].sar[0].ch[1]"/>
                         <Param id="chan3#sign" value="false"/>
@@ -1219,7 +1281,7 @@
                         <Param id="convPointUs" value="0.100"/>
                         <Param id="convPrio0" value="HIGH"/>
                         <Param id="convPrio1" value="HIGH"/>
-                        <Param id="convPrio2" value="LOW"/>
+                        <Param id="convPrio2" value="HIGH"/>
                         <Param id="convPrio3" value="LOW"/>
                         <Param id="convPrio4" value="LOW"/>
                         <Param id="convPrio5" value="LOW"/>
@@ -1229,7 +1291,7 @@
                         <Param id="enable#enable" value="ioss[0].port[4].pin[0]"/>
                         <Param id="enable#initialState" value="1"/>
                         <Param id="enable#nonSec" value="0"/>
-                        <Param id="fDeadNs" value="500"/>
+                        <Param id="fDeadNs" value="50"/>
                         <Param id="fastCbName" value="vres_0_motor_0_fast_callback"/>
                         <Param id="fastDiv" value="1"/>
                         <Param id="fastPrio" value="0"/>
@@ -1254,7 +1316,7 @@
                         <Param id="pwm0#pwm0" value="tcpwm[0].group[1].cnt[0]"/>
                         <Param id="pwm1#pwm1" value="tcpwm[0].group[1].cnt[1]"/>
                         <Param id="pwm2#pwm2" value="tcpwm[0].group[1].cnt[2]"/>
-                        <Param id="rDeadNs" value="500"/>
+                        <Param id="rDeadNs" value="50"/>
                         <Param id="reload_line_sel" value="false"/>
                         <Param id="seq0#seq0" value="AUTOPLACEDpass[0].sar[0].seq[0].grp[0]"/>
                         <Param id="seq1#seq1" value="AUTOPLACEDpass[0].sar[0].seq[0].grp[1]"/>
@@ -1267,91 +1329,91 @@
                         <Param id="swapPointUs" value="0.100"/>
                         <Param id="syncTimer#syncTimer" value="AUTOPLACEDtcpwm[0].group[1].cnt[4]"/>
                     </Parameters>
-                    <Personality template="slowTimer" instance="Uk-gqqRVvZE">
+                    <Personality template="slowTimer" instance="tzzzIs44Tmk">
                         <Block location="tcpwm[0].group[0].cnt[0]" locked="false"/>
                     </Personality>
-                    <Personality template="pwm0" instance="yrwh-h2XZMQ">
+                    <Personality template="pwm0" instance="phPmS5TJZeo">
                         <Block location="tcpwm[0].group[1].cnt[0]" locked="true"/>
                     </Personality>
-                    <Personality template="pwm1" instance="AOu9gijb6Es">
+                    <Personality template="pwm1" instance="KsoN1HOzFe8">
                         <Block location="tcpwm[0].group[1].cnt[1]" locked="true"/>
                     </Personality>
-                    <Personality template="pwm2" instance="HTj93vL2iRI">
+                    <Personality template="pwm2" instance="RYltt2qY3wk">
                         <Block location="tcpwm[0].group[1].cnt[2]" locked="true"/>
                     </Personality>
-                    <Personality template="syncTimer" instance="vfyY-V5Jw70">
+                    <Personality template="syncTimer" instance="c2ZB6I_q3OM">
                         <Block location="tcpwm[0].group[1].cnt[4]" locked="false"/>
                     </Personality>
-                    <Personality template="fastTimer" instance="qOgPfRnbfS8">
+                    <Personality template="fastTimer" instance="L2MP3feuzps">
                         <Block location="tcpwm[0].group[1].cnt[3]" locked="false"/>
                     </Personality>
-                    <Personality template="chan0" instance="PoPDkLdnwvE">
+                    <Personality template="chan0" instance="KNFZpp0h1i8">
                         <Block location="pass[0].sar[0].ch[10]" locked="true">
                             <Aliases>
                                 <Alias value="ADC_SAMP_IU"/>
                             </Aliases>
                         </Block>
                     </Personality>
-                    <Personality template="chan1" instance="GZXvTwW5LxE">
+                    <Personality template="chan1" instance="HDo1VMf2Ads">
                         <Block location="pass[0].sar[0].ch[11]" locked="true">
                             <Aliases>
                                 <Alias value="ADC_SAMP_IV"/>
                             </Aliases>
                         </Block>
                     </Personality>
-                    <Personality template="chan2" instance="d2pAR3POMHk">
-                        <Block location="pass[0].sar[0].ch[12]" locked="true">
+                    <Personality template="chan2" instance="rGOdrYARNMs">
+                        <Block location="pass[0].sar[0].ch[9]" locked="true">
                             <Aliases>
                                 <Alias value="ADC_SAMP_IW"/>
                             </Aliases>
                         </Block>
                     </Personality>
-                    <Personality template="chan3" instance="95a1Y8OIgBI">
+                    <Personality template="chan3" instance="JNXN2d4nB4Y">
                         <Block location="pass[0].sar[0].ch[1]" locked="true">
                             <Aliases>
                                 <Alias value="ADC_SAMP_VBUS"/>
                             </Aliases>
                         </Block>
                     </Personality>
-                    <Personality template="chan4" instance="KDhxuEBpZtI">
+                    <Personality template="chan4" instance="KOow5c2dU_0">
                         <Block location="pass[0].sar[0].ch[8]" locked="true">
                             <Aliases>
                                 <Alias value="ADC_SAMP_VPOT"/>
                             </Aliases>
                         </Block>
                     </Personality>
-                    <Personality template="chan5" instance="Q4x3lKJXsGc">
+                    <Personality template="chan5" instance="wRkCeS96lyE">
                         <Block location="pass[0].sar[0].ch[16]" locked="true">
                             <Aliases>
-                                <Alias value="ADC_SAMP_TEMP"/>
+                                <Alias value="ADC_SAMP_TEMP_MD"/>
                             </Aliases>
                         </Block>
                     </Personality>
-                    <Personality template="seq0" instance="Fl6huEbc-0o">
+                    <Personality template="seq0" instance="kthyWpkvhc0">
                         <Block location="pass[0].sar[0].seq[0].grp[0]" locked="false">
                             <Aliases>
                                 <Alias value="ADC_SEQ0"/>
                             </Aliases>
                         </Block>
                     </Personality>
-                    <Personality template="seq1" instance="613y4pX2VDo">
+                    <Personality template="seq1" instance="Yi-u4JTi0uw">
                         <Block location="pass[0].sar[0].seq[0].grp[1]" locked="false">
                             <Aliases>
                                 <Alias value="ADC_SEQ1"/>
                             </Aliases>
                         </Block>
                     </Personality>
-                    <Personality template="seqInTrig" instance="AVXPL1Kwbq8">
+                    <Personality template="seqInTrig" instance="yTwOb43Jkj0">
                         <Block location="pass[0].input_trigger[0]" locked="false"/>
                     </Personality>
-                    <Personality template="enable" instance="CpdPaZ-lIHI">
+                    <Personality template="enable" instance="aa2WJY8GSgA">
                         <Block location="ioss[0].port[4].pin[0]" locked="true">
                             <Aliases>
                                 <Alias value="POW_EN"/>
                             </Aliases>
                         </Block>
                     </Personality>
-                    <Personality template="fault" instance="zJK_IPa7ZB0">
+                    <Personality template="fault" instance="tdNHcanSy04">
                         <Block location="ioss[0].port[4].pin[3]" locked="true">
                             <Aliases>
                                 <Alias value="PWR_OCD"/>
@@ -1398,24 +1460,24 @@
                     <Port name="tcpwm[0].group[1].cnt[2].tr_line_compl[0]"/>
                 </Net>
                 <Net>
-                    <Port name="ioss[0].port[7].pin[5].digital_out[0]"/>
-                    <Port name="tcpwm[0].group[1].cnt[5].tr_line_compl[0]"/>
-                </Net>
-                <Net>
-                    <Port name="ioss[0].port[7].pin[6].digital_out[0]"/>
-                    <Port name="tcpwm[0].group[1].cnt[6].tr_line_compl[0]"/>
-                </Net>
-                <Net>
-                    <Port name="ioss[0].port[7].pin[7].digital_out[0]"/>
-                    <Port name="tcpwm[0].group[1].cnt[7].tr_line_compl[0]"/>
-                </Net>
-                <Net>
                     <Port name="ioss[0].port[9].pin[0].digital_out[0]"/>
                     <Port name="tcpwm[0].group[1].cnt[1].tr_line[0]"/>
                 </Net>
                 <Net>
                     <Port name="ioss[0].port[9].pin[1].digital_out[0]"/>
                     <Port name="tcpwm[0].group[1].cnt[1].tr_line_compl[0]"/>
+                </Net>
+                <Net>
+                    <Port name="ioss[0].port[9].pin[2].digital_out[0]"/>
+                    <Port name="tcpwm[0].group[1].cnt[7].tr_line_compl[0]"/>
+                </Net>
+                <Net>
+                    <Port name="ioss[0].port[9].pin[3].digital_out[0]"/>
+                    <Port name="tcpwm[0].group[1].cnt[6].tr_line_compl[0]"/>
+                </Net>
+                <Net>
+                    <Port name="ioss[0].port[9].pin[4].digital_out[0]"/>
+                    <Port name="tcpwm[0].group[1].cnt[5].tr_line_compl[0]"/>
                 </Net>
                 <Net>
                     <Port name="pass[0].input_trigger[0].tr_a_in[0]"/>

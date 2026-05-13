@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="org.eclipse.ui.externaltools.ProgramLaunchConfigurationType">
-    <stringAttribute key="bad_container_name" value="${cy_prj_path:5cb5ad5d-e3d6-4c30-b324-ca69da3e357d}\.mtbLaunchConfigs"/>
+    <stringAttribute key="bad_container_name" value="${cy_prj_path:cccf6abb-2e5f-4629-813a-8853b21d2f8f}\.mtbLaunchConfigs"/>
     <booleanAttribute key="com.cypress.studio.launch.hide" value="true"/>
     <stringAttribute key="org.eclipse.debug.core.ATTR_REFRESH_SCOPE" value="${project}"/>
     <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
@@ -10,11 +10,15 @@
         <listEntry value="4"/>
     </listAttribute>
     <mapAttribute key="org.eclipse.debug.core.environmentVariables">
+        <mapEntry key="CY_COMPILER_GCC_ARM_DIR" value="${mtb_gcc_arm_path_buildvar__7219170e-e783-472b-b87c-deb64d4cb4a0}"/>
+        <mapEntry key="CY_COMPILER_IAR_DIR" value="${mtb_iar_path_buildvar__7219170e-e783-472b-b87c-deb64d4cb4a0}"/>
+        <mapEntry key="CY_COMPILER_LLVM_ARM_DIR" value="${mtb_llvm_arm_path_buildvar__7219170e-e783-472b-b87c-deb64d4cb4a0}"/>
         <mapEntry key="CY_TOOLS_PATHS" value="${mtb_tools_path_buildvar__7219170e-e783-472b-b87c-deb64d4cb4a0}"/>
+        <mapEntry key="MTB_JLINK_DIR" value="${mtb_jlink_path_buildvar__7219170e-e783-472b-b87c-deb64d4cb4a0}"/>
         <mapEntry key="PATH" value="${cy_tools_path:modus-shell}/bin:${env_var:PATH}"/>
     </mapAttribute>
     <stringAttribute key="org.eclipse.ui.externaltools.ATTR_LAUNCH_CONFIGURATION_BUILD_SCOPE" value="${none}"/>
-    <stringAttribute key="org.eclipse.ui.externaltools.ATTR_LOCATION" value="${mtb_tools_path:7219170e-e783-472b-b87c-deb64d4cb4a0,modus-shell}/bin/make${cy_exe_platform_ext}"/>
+    <stringAttribute key="org.eclipse.ui.externaltools.ATTR_LOCATION" value="${cy_tools_path:modus-shell}/bin/make${cy_exe_platform_ext}"/>
     <stringAttribute key="org.eclipse.ui.externaltools.ATTR_TOOL_ARGUMENTS" value="-j28 erase"/>
-    <stringAttribute key="org.eclipse.ui.externaltools.ATTR_WORKING_DIRECTORY" value="${cy_prj_path:5cb5ad5d-e3d6-4c30-b324-ca69da3e357d}"/>
+    <stringAttribute key="org.eclipse.ui.externaltools.ATTR_WORKING_DIRECTORY" value="${cy_prj_path:cccf6abb-2e5f-4629-813a-8853b21d2f8f}"/>
 </launchConfiguration>
