@@ -467,7 +467,7 @@ void PARAMS_InitAutoCalc(PARAMS_t* params_ptr)
       //params_ptr->ctrl.speed.kp = ((8.0f / 3.0f) / (POW_TWO(params_ptr->motor.P) * params_ptr->motor.lam)) * params_ptr->mech.inertia * params_ptr->ctrl.speed.bw; // [A/(Ra/sec-elec)]
       //params_ptr->ctrl.speed.ki = ((8.0f / 3.0f) / (POW_TWO(params_ptr->motor.P) * params_ptr->motor.lam)) * params_ptr->mech.viscous * params_ptr->ctrl.speed.bw * params_ptr->ctrl.speed.ki_multiple; // [A/(Ra/sec-elec).(Ra/sec)]
 
-	  /*MIAT 8318 100KV with mounted 19x10 propeller*/
+	  /*MIAT 8318 100KV with mounted 30x11 propeller*/
 	  params_ptr->ctrl.speed.kp = 0.005079614f;
 	  params_ptr->ctrl.speed.ki = 0.01179f;
 

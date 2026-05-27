@@ -57,7 +57,7 @@
 
 #define OCD_TH_RES 	    (10000)
 #define OCD_TH_CAL 	    (1.77f)
-#define OCD_I_AMP 	    (10.0f) /*Power Input Current Limit*/
+#define OCD_I_AMP 	    (25.0f) /*Power Input Current Limit*/
 
 // ADC reading to temperature lookup table (temperatures in Celsius for ntcg103jf103ft1s)
 const int16_t ntc_adc_table[NTC_TABLE_SIZE] = {

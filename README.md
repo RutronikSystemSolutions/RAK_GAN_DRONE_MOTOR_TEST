@@ -2,18 +2,62 @@
 
 # RAK-GAN Drone Motor Test 
 
-This code example was created for testing the RAK-GAN with the MIAT8318 100KV motor.
+This code example was created for testing the RAK-GAN with the MIAT8318 100KV motor. The RAK-GAN board is equipped with a gallium nitride transistor bridge controlled by the PSOC™ Control C3M5 microcontroller.
 
- <img src="images/rak_gan_uav_motor.jpg" style="zoom:100%;" />
+ <img src="images/rak_gan_uav_motor.jpg" style="zoom:25%;" />
 
 ## Requirements
 
 - [ModusToolbox® software](https://www.infineon.com/cms/en/design-support/tools/sdk/modustoolbox-software/) v3.8 or later (tested with v3.8).
 - Motor Suite 2.9.0 GUI.
-- The latest hardware release: RAK-GAN Rev. 1.
+- The latest hardware release: [RAK-GAN Rev. 1](https://github.com/RutronikSystemSolutions/RAK_GAN_Hardware_Files).
 - At least 500W 48V DC Power Supply.
 - At least 2.5 mm2 (14 AWG) Power Cables.
 - MIAT8318 KV100 motor.
+
+### Firmware Configuration Overview
+
+<table>
+  <tr>
+    <th style="text-align: left;">Motor Control Topology:</th>
+    <td>3-shunt (TMR current sensors TLE5572)</td>
+  </tr>
+  <tr>
+    <th style="text-align: left;">Motor Control Mode:</th>
+    <td>Speed Mode FOC with OL Current Startup</td>
+  </tr>
+  <tr>
+    <th style="text-align: left;">Nominal Power Supply Voltage:</th>
+    <td>48 V</td>
+  </tr>
+   <tr>
+    <th style="text-align: left;">PWM Switching Frequency:</th>
+    <td>100 kHz</td>
+  </tr>
+  <tr>
+    <th style="text-align: left;">Rising/Falling Dead Time:</th>
+    <td>50 ns</td>
+  </tr>
+  <tr>
+    <th style="text-align: left;">Current Control Loop Bandwidth:</th>
+    <td>4000 Hz</td>
+  </tr>
+  <tr>
+    <th style="text-align: left;">Speed Control Loop Bandwidth:</th>
+    <td>40 Hz</td>
+  </tr>
+  <tr>
+    <th style="text-align: left;">PWM to Fast Loop Frequency Ratio:</th>
+    <td>1:1</td>
+  </tr>
+  <tr>
+    <th style="text-align: left;">DC Current Input Protection Trigger:</th>
+    <td>25 A</td>
+  </tr>
+</table>
+
+
+This example uses the Motor Control Driver Interface ([MCDI](https://infineon.github.io/motor-ctrl-lib/html/group__group__mcdi__general.html)); therefore, part of the configuration is managed through the ModusToolbox™ tool "Device Configurator". The rest of the configuration is in files: *ParamConfig.h*, *ParamConfig.c*, *MCU.c*
 
 ## Supported toolchains (make variable 'TOOLCHAIN')
 
@@ -50,23 +94,28 @@ For more details, see the [Eclipse IDE for ModusToolbox&trade; software user gui
 
 ### Operation
 
-The motor can be controlled in two ways: using the Motor Suite GUI or simply by turning the potentiometer POT2. All the parameters are adjusted to work with the MIAT8318 KV100 motor and 19x10 propeller. The PID has fixed values in the ParamConfig.c file:
+The motor can be controlled in two ways: using the Motor Suite GUI or by adjusting the motor's rotational speed with the potentiometer POT2. All the parameters are adjusted to work with the MIAT8318 KV100 motor and 30x11 propeller. The PID has fixed values in the *ParamConfig.c* file:
 
 ```
-// Speed Control Parameters:
+    // Speed Control Parameters:
 #if defined(CTRL_METHOD_RFO)
-if(!params_ptr->autocal_disable.speed_control) /*Skip the calculation if this bit is set*/
-{
-	//params_ptr->ctrl.speed.kp = ((8.0f / 3.0f) / (POW_TWO(params_ptr->motor.P) * params_ptr->motor.lam)) * params_ptr-		  		>mech.inertia * params_ptr->ctrl.speed.bw; // [A/(Ra/sec-elec)]
-	//params_ptr->ctrl.speed.ki = ((8.0f / 3.0f) / (POW_TWO(params_ptr->motor.P) * params_ptr->motor.lam)) * params_ptr-			>mech.viscous * params_ptr->ctrl.speed.bw * params_ptr->ctrl.speed.ki_multiple; // [A/(Ra/sec-elec).(Ra/sec)]
+    if(!params_ptr->autocal_disable.speed_control) /*Skip the calculation if this bit is set*/
+    {
+      //params_ptr->ctrl.speed.kp = ((8.0f / 3.0f) / (POW_TWO(params_ptr->motor.P) * params_ptr->motor.lam)) * params_ptr->mech.inertia * params_ptr->ctrl.speed.bw; // [A/(Ra/sec-elec)]
+      //params_ptr->ctrl.speed.ki = ((8.0f / 3.0f) / (POW_TWO(params_ptr->motor.P) * params_ptr->motor.lam)) * params_ptr->mech.viscous * params_ptr->ctrl.speed.bw * params_ptr->ctrl.speed.ki_multiple; // [A/(Ra/sec-elec).(Ra/sec)]
 
-	/*MIAT 8318 100KV with mounted 19x10 propeller*/
-	params_ptr->ctrl.speed.kp = 0.005079614f;
-	params_ptr->ctrl.speed.ki = 0.01179f;
-}
+	  /*MIAT 8318 100KV with mounted 30x11 propeller*/
+	  params_ptr->ctrl.speed.kp = 0.005079614f;
+	  params_ptr->ctrl.speed.ki = 0.01179f;
+
+    }
+    params_ptr->ctrl.speed.ff_k_inertia = ((8.0f / 3.0f) / (POW_TWO(params_ptr->motor.P) * params_ptr->motor.lam)) * params_ptr->mech.inertia; // [A/(Ra/sec-elec).sec]
+    params_ptr->ctrl.speed.ff_k_viscous = ((8.0f / 3.0f) / (POW_TWO(params_ptr->motor.P) * params_ptr->motor.lam)) * params_ptr->mech.viscous; // [A/(Ra/sec-elec)]
+    params_ptr->ctrl.speed.ff_k_friction = ((4.0f / 3.0f) / (params_ptr->motor.P * params_ptr->motor.lam)) * params_ptr->mech.friction; // [A]
+
 ```
 
-The motor parameters, along with many other important settings, are in ParamConfig.h
+The motor parameters, along with many other important settings, are in *ParamConfig.h*
 
 ```
 /*******Motor*******/
@@ -96,13 +145,19 @@ On program entry, you may select the firmware and library versions. Please do as
 
 The potentiometer control is always on by default. Switch it off and slowly increase the throttle "Target Set". In this case, the motor will start spinning at 4% of maximum speed in Current Open Loop mode. At 8% of maximum speed, the observer will take over, and FOC will be engaged. 
 
+**Note:** The MIAT8318 100 KV motor can handle up to 68 A (2.7 kW), while the RAK-GAN is rated at 25 A. The purpose of this test was to probe the system's limits without fully loading the motor. The FOC algorithm is updated every PWM cycle in this example; hence, the MCU is fully loaded and has no time margin for other processes, such as the Motor Suite oscilloscope.
+
 <img src="images/motor_suite_gui.jpg" style="zoom:60%;" />
+
+**Test results:** With a mounted 80-cm-diameter propeller (30x11 CW), it produces around 6kg of pull force at 2560 RPM, 40V, 17.7A (29.9A phase current in GUI). The heatsink's temperature was 38,1°C; note that it was air-cooled by the propeller airflow.  
 
 ### Debugging
 
 If you have successfully imported the example, the debug configurations are already prepared to use with the JLink. Open the ModusToolbox™ perspective and find the Quick Panel. Click the desired debug launch configuration, then wait for programming to complete and debugging to start.
 
 <img src="images/debug_start.png" style="zoom:100%;" />
+
+
 
 ## Legal Disclaimer
 
