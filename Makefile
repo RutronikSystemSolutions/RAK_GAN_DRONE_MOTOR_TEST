@@ -40,7 +40,7 @@ MTB_TYPE=COMBINED
 # To change the target, it is recommended to use the Library manager
 # ('make library-manager' from command line), which will also update Eclipse IDE launch
 # configurations.
-TARGET=APP_RAK_GAN
+TARGET=RAK_GAN
 
 # Name of application (used to derive name of final linked file).
 #
