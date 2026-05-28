@@ -56,7 +56,7 @@
 #define FAULT_LED_LVL 	(200)
 
 #define OCD_TH_RES 	    (10000)
-#define OCD_TH_CAL 	    (1.77f)
+#define OCD_TH_CAL 	    (0.0f)
 #define OCD_I_AMP 	    (25.0f) /*Power Input Current Limit*/
 
 // ADC reading to temperature lookup table (temperatures in Celsius for ntcg103jf103ft1s)
@@ -149,7 +149,7 @@ uint32_t OCD_Current_to_PWM(float i_limit)
 	uint32_t pwr_thpwm = OCD_TH_RES;
 	float v_th = 0;
 
-	v_th = 0.0386 * i_limit * OCD_TH_CAL - 0.0722;
+	v_th = 0.024 * i_limit - 0.0426 + OCD_TH_CAL;
 	pwr_thpwm = (uint32_t)(v_th / 3.3 * OCD_TH_RES);
 
 	return pwr_thpwm;
