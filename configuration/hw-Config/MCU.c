@@ -39,6 +39,7 @@
 * of such system or application assumes all risk of such use and in doing
 * so agrees to indemnify Cypress against all liability.
 *******************************************************************************/
+#include "Controller.h"
 #include "HardwareIface.h"
 #include "MCU.h"
 #include "cycfg_mcdi.h"
@@ -538,6 +539,7 @@ void vres_0_motor_0_fast_callback(void)
 //Cy_GPIO_Inv(ARD_IO0_PORT, ARD_IO0_NUM);
 }
 
+
 void vres_0_motor_0_slow_callback(void)
 {
 #if defined (EXE_TIMER_ENABLED)
@@ -564,6 +566,24 @@ void vres_0_motor_0_slow_callback(void)
 	}
     //motor[0].sensor_iface_ptr->digital.fault = !Cy_GPIO_Read(PWR_OCD_PORT, PWR_OCD_NUM);
     //motor[0].faults_ptr->flags.hw.cs_ocp = motor[0].sensor_iface_ptr->digital.fault ? 0b111 : 0b000; // hw faults only cover over-current without SGD
+
+	/*Variable for undervoltage fault clearing */
+	static _Bool uv_fault = false;
+	
+	/*Detect the undervoltage event first, presume that this came from 7th FET switch off*/
+	if((bool)(motor[0].faults_ptr->flags_latched.sw.uv_vdc) && !uv_fault)
+	{
+		uv_fault = true;
+	}
+	/*Try to clear the undervoltage fault if requested from GUI*/
+	if(!(bool)(motor[0].faults_ptr->flags_latched.sw.uv_vdc) && uv_fault)
+	{
+		/* Reset the power input protection*/
+		Cy_GPIO_Clr(POW_EN_PORT, POW_EN_NUM);
+		CyDelay(1);
+    	Cy_GPIO_Set(POW_EN_PORT, POW_EN_NUM);
+		uv_fault = false;
+	}
 
     // Direction switch
 #if defined(DIR_SWITCH_PORT) // hardware direction switch
